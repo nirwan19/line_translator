@@ -129,7 +129,9 @@ if ($type == 'join' || $command == 'menu') {
         )
     );
 }else if ($command == 'help'|| $command == 'Help'|| $command == 'HELP') {
-    $text = "Kode Bahasa : ";
+    $text .= "Format : (Kode Bahasa Tujuan) (Kalimat)";
+    $text .= "\nContoh  : EN halo, apa kabar";
+    $text = "\n\n Kode Bahasa : ";
     $text .= "\n English : En";
     $text .= "\n Indonesia : Id";
     $text .= "\n Arabic : Ar";
@@ -138,8 +140,6 @@ if ($type == 'join' || $command == 'menu') {
     $text .= "\n Korea : Ko";
     $text .= "\n Italy : It";
     $text .= "\n Japan : Ja";
-    $text .= "\n\n Format : (Kode Bahasa Tujuan) (Kalimat)";
-    $text .= "\n  Contoh  : EN halo, apa kabar";
 
 	$balas = array(
         'replyToken' => $replyToken,
@@ -251,7 +251,17 @@ if($message['type']=='text') {
                 )
             )
         );    
-    }
+    }else {	
+	$balas = array(
+	'replyToken' => $replyToken,														
+	'messages' => array(
+		array(
+		'type' => 'text',									
+		'text' => 'Mohon maaf, Saya kurang paham, bisa ulangi lagi ^_^  \n atau ketik help untuk bantuan kode bahasa'										
+		)
+	)
+	);					
+}
 	
 }else if($message['type']=='sticker'){	
 	$balas = array(
@@ -260,16 +270,6 @@ if($message['type']=='text') {
 		array(
 		'type' => 'text',									
 		'text' => 'Makasih Kak Stikernya ^_^'										
-		)
-	)
-	);					
-}else {	
-	$balas = array(
-	'replyToken' => $replyToken,														
-	'messages' => array(
-		array(
-		'type' => 'text',									
-		'text' => 'Mohon maaf, Saya kurang paham, bisa ulangi lagi ^_^  \n atau ketik help untuk bantuan kode bahasa'										
 		)
 	)
 	);					
