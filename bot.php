@@ -138,7 +138,8 @@ if ($type == 'join' || $command == 'menu') {
     $text .= "\n Korea : Ko";
     $text .= "\n Italy : It";
     $text .= "\n Japan : Ja";
-    $text .= "\n\n  Contoh  : EN halo, apa kabar";
+    $text .= "\n\n Format : (Kode Bahasa Tujuan) (Kalimat)";
+    $text .= "\n  Contoh  : EN halo, apa kabar";
 
 	$balas = array(
         'replyToken' => $replyToken,
