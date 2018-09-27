@@ -96,8 +96,8 @@ function translateIt($keyword) {
 	$result .= $json['text']['0'];
     return $result;
 }
-function translateJp($keyword) {
-    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-jp";
+function translateJa($keyword) {
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-ja";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
     $result = "Japan  : ";
@@ -118,7 +118,27 @@ function translateJp($keyword) {
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == 'menu') {
     $text = "Assalamualaikum Agan, untuk menerjemahkan, ketik (kode bahasa) (kalimat yg ingin di terjemahkan)... ^_^";
-    $text = "\n atau ketik Help untuk bantuan";
+    $text .= "\n atau ketik Help untuk bantuan";
+	$balas = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+            )
+        )
+    );
+}else if ($command == 'help'|| $command == 'Help'|| $command == 'HELP') {
+    $text = "Kode Bahasa : ";
+    $text .= "\n English : En";
+    $text .= "\n Indonesia : Id";
+    $text .= "\n Arabic : Ar";
+    $text .= "\n Deutch : De";
+    $text .= "\n Chinese : Zh";
+    $text .= "\n Korea : Ko";
+    $text .= "\n Italy : It";
+    $text .= "\n Japan : Ja";
+
 	$balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -129,6 +149,7 @@ if ($type == 'join' || $command == 'menu') {
         )
     );
 }
+
 
 //pesan bergambar
 if($message['type']=='text') {
@@ -216,9 +237,9 @@ if($message['type']=='text') {
                 )
             )
         );    
-    }else if ($command == 'jp'|| $command == 'Jp'|| $command == 'JP') {
+    }else if ($command == 'ja'|| $command == 'Ja'|| $command == 'JA') {
 
-        $result = translateJp($options);
+        $result = translateJa($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(
