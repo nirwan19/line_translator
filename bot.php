@@ -84,7 +84,7 @@ function translateKo($keyword) {
     $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-ko";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
-    $result = "Chinese  : ";
+    $result = "Korean  : ";
 	$result .= $json['text']['0'];
     return $result;
 }
@@ -92,7 +92,7 @@ function translateIt($keyword) {
     $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-it";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
-    $result = "Chinese  : ";
+    $result = "Italian  : ";
 	$result .= $json['text']['0'];
     return $result;
 }
@@ -100,7 +100,7 @@ function translateJp($keyword) {
     $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-jp";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
-    $result = "Chinese  : ";
+    $result = "Japan  : ";
 	$result .= $json['text']['0'];
     return $result;
 }
