@@ -117,8 +117,8 @@ function translateJa($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == 'menu') {
-    $text = "Assalamualaikum Agan, untuk menerjemahkan, ketik (kode bahasa) (kalimat yg ingin di terjemahkan)... ^_^";
-    $text .= "\n atau ketik Help untuk bantuan";
+    $text = "Assalamualaikum Agan, untuk menerjemahkan, ketik (kode bahasa) (kalimat yg ingin di terjemahkan)...^_^";
+    $text .= "\n atau ketik HELP untuk bantuan";
 	$balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -138,6 +138,7 @@ if ($type == 'join' || $command == 'menu') {
     $text .= "\n Korea : Ko";
     $text .= "\n Italy : It";
     $text .= "\n Japan : Ja";
+    $text .= "\n\n  Contoh  : EN halo, apa kabar";
 
 	$balas = array(
         'replyToken' => $replyToken,
