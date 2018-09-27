@@ -131,7 +131,7 @@ if ($type == 'join' || $command == 'menu') {
 }else if ($command == 'help'|| $command == 'Help'|| $command == 'HELP') {
     $text .= "Format : (Kode Bahasa Tujuan) (Kalimat)";
     $text .= "\nContoh  : EN halo, apa kabar";
-    $text = "\n\n Kode Bahasa : ";
+    $text .= "\n\n Kode Bahasa : ";
     $text .= "\n English : En";
     $text .= "\n Indonesia : Id";
     $text .= "\n Arabic : Ar";
