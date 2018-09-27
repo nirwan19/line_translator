@@ -263,6 +263,16 @@ if($message['type']=='text') {
 		)
 	)
 	);					
+}else {	
+	$balas = array(
+	'replyToken' => $replyToken,														
+	'messages' => array(
+		array(
+		'type' => 'text',									
+		'text' => 'Mohon maaf, Saya kurang paham, bisa ulangi lagi ^_^  \n atau ketik help untuk bantuan kode bahasa'										
+		)
+	)
+	);					
 }
 if (isset($balas)) {
     $result = json_encode($balas);
