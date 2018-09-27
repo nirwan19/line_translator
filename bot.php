@@ -120,8 +120,31 @@ if($message['type']=='text') {
                     'text' => $result
                 )
             )
-        );
-	    
+        );    
+    }else if ($command == 'ar'|| $command == 'Ar'|| $command == 'AR') {
+
+        $result = translateAr($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
+    }else if ($command == 'de'|| $command == 'De'|| $command == 'DE') {
+
+        $result = translateDe($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
     }
 }else if($message['type']=='sticker'){	
 	$balas = array(
