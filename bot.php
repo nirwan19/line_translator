@@ -58,7 +58,7 @@ function translateAr($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Indonesia  : ";
+    $result = "Arabic  : ";
 	$result .= $json['text']['0'];
     return $result;
 }
@@ -68,10 +68,44 @@ function translateDe($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Indonesia  : ";
+    $result = "Deutch  : ";
 	$result .= $json['text']['0'];
     return $result;
 }
+function translateZh($keyword) {
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-zh";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "Chinese  : ";
+	$result .= $json['text']['0'];
+    return $result;
+}
+function translateKo($keyword) {
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-ko";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "Chinese  : ";
+	$result .= $json['text']['0'];
+    return $result;
+}
+function translateIt($keyword) {
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-it";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "Chinese  : ";
+	$result .= $json['text']['0'];
+    return $result;
+}
+function translateJp($keyword) {
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180926T193705Z.c703e24d71c28672.2147927d0c29e0a6a705eec6388e418ad2a1bcfc&text=" . $keyword . "&lang=id-jp";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "Chinese  : ";
+	$result .= $json['text']['0'];
+    return $result;
+}
+
+
 
 #-------------------------[Function]-------------------------#
 
@@ -83,8 +117,9 @@ function translateDe($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == 'menu') {
-    $text = "Assalamualaikum Agan, Silahkan untuk menerjemahkan bahasa Inggris, ketik EN (kalimat yg ingin di terjemahkan)... atau untuk bahasa Indonesia bisa ketik ID (kalimat yg ingin di terjemahkan).. ^_^";
-    $balas = array(
+    $text = "Assalamualaikum Agan, untuk menerjemahkan, ketik (kode bahasa) (kalimat yg ingin di terjemahkan)... ^_^";
+    $text = "\n atau ketik Help untuk bantuan";
+	$balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
             array(
@@ -145,7 +180,56 @@ if($message['type']=='text') {
                 )
             )
         );    
+    }else if ($command == 'zh'|| $command == 'Zh'|| $command == 'ZH') {
+
+        $result = translateZh($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
+    }else if ($command == 'ko'|| $command == 'Ko'|| $command == 'KO') {
+
+        $result = translateKo($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
+    }else if ($command == 'it'|| $command == 'It'|| $command == 'IT') {
+
+        $result = translateIt($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
+    }else if ($command == 'jp'|| $command == 'Jp'|| $command == 'JP') {
+
+        $result = translateJp($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );    
     }
+	
 }else if($message['type']=='sticker'){	
 	$balas = array(
 	'replyToken' => $replyToken,														
