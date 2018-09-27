@@ -121,53 +121,18 @@ if($message['type']=='text') {
                 )
             )
         );
-	}else if ($command == 'ar'|| $command == 'Ar'|| $command == 'AR') {
-
-        $result = translateAr($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-	}else if ($command == 'de'|| $command == 'DE'|| $command == 'De') {
-
-        $result = translateAr($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-	}else{ $balas = array(
-            'replyToken' => $replyToken,                                                        
-            'messages' => array(
-            array(
-                'type' => 'text',                                   
-                'text' => 'Sorry gan, Masukkan dulu Kode bahasanya ya'                                
-                'text' => '\n ketik HELP untuk Bantuan.. ^_^'                                       
-                )
-            )
-            );    
+	    
     }
 }else if($message['type']=='sticker'){	
 	$balas = array(
-							'replyToken' => $replyToken,														
-							'messages' => array(
-								array(
-										'type' => 'text',									
-										'text' => 'Makasih Kak Stikernya ^_^'										
-									
-									)
-							)
-						);
-						
+	'replyToken' => $replyToken,														
+	'messages' => array(
+		array(
+		'type' => 'text',									
+		'text' => 'Makasih Kak Stikernya ^_^'										
+		)
+	)
+	);					
 }
 if (isset($balas)) {
     $result = json_encode($balas);
